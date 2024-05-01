@@ -23,7 +23,7 @@
 							% Corresponding Velocity, m/s
 	Alpha	=	CL / CLa;			% Corresponding Angle of Attack, rad
 	
-    %% part 2
+   %% part 2
 %	a) Equilibrium Glide at Maximum Lift/Drag Ratio
 	H		=	2;			% Initial Height, m
 	R		=	0;			% Initial Range, m
@@ -32,78 +32,29 @@
 	tspan	=	[to tf];
 	xo		=	[V;Gam;H;R];
 	[ta,xa]	=	ode23('EqMotion',tspan,xo);
-    
-    figure 
-    subplot(2,1,1)
-    
-    xo		=	[2;Gam;H;R];
+  
+   figure
+   subplot(2,1,1)
+  
+   xo		=	[2;Gam;H;R];
 	[ta,xa]	=	ode23('EqMotion',tspan,xo);
-    xo		=	[7.5;Gam;H;R];
-    [tb,xb] =	ode23('EqMotion',tspan,xo);
-    xo		=	[V;Gam;H;R];
-    [tc,xc] =	ode23('EqMotion',tspan,xo);
-    plot(xa(:,4),xa(:,3),'red',xb(:,4),xb(:,3),'green',xc(:,4),xc(:,3),'black')
-    title('change velocity')
-    ylabel('height'); xlabel('range');
-
-    subplot(2,1,2)
- 
-    xo		=	[V;-0.5;H;R];
+   xo		=	[7.5;Gam;H;R];
+   [tb,xb] =	ode23('EqMotion',tspan,xo);
+   xo		=	[V;Gam;H;R];
+   [tc,xc] =	ode23('EqMotion',tspan,xo);
+   plot(xa(:,4),xa(:,3),'red',xb(:,4),xb(:,3),'green',xc(:,4),xc(:,3),'black')
+   title('change velocity')
+   ylabel('height'); xlabel('range');
+   subplot(2,1,2)
+   xo		=	[V;-0.5;H;R];
 	[ta,xa]	=	ode23('EqMotion',tspan,xo);
-    xo		=	[V;0.4;H;R];
-    [tb,xb] =	ode23('EqMotion',tspan,xo);
-    xo		=	[V;-0.18;H;R];
-    [tc,xc] =	ode23('EqMotion',tspan,xo);
-    plot(xa(:,4),xa(:,3),'red',xb(:,4),xb(:,3),'green',xc(:,4),xc(:,3),'black')
-       title('change flight path angle')
-    ylabel('height'); xlabel('range');
-  %% part 3
-
-  Vmin = 2;
-  Vmax = 7.5;
-  GamMin = -.5;
-  GamMax = .4;
-
-  figure 
-  for i = 1:100
-      V = Vmin + (Vmax-Vmin)*rand(1);
-      Gam = GamMin + (GamMax-GamMin)*rand(1);
-    xo		=	[V;Gam;H;R];
-	[ta,xa]	=	ode23('EqMotion',tspan,xo);
-   
-    plot(xa(:,4), xa(:,3), 'black')
-    hold on
-
-  end
-xlabel('range'); ylabel('height'); title('Monte Carlo Simulation')
-
-  %% part 4
-xavg = 0;
-for i = 1:100
-    V = Vmin + (Vmax-Vmin)*rand(1);
-    Gam = GamMin + (GamMax-GamMin)*rand(1);
-    [ta,xa]	=	ode23('EqMotion',tspan,xo);   
-    xavg = (xa+xavg);
-
-end
-xavg = xavg/i;
-
-%make it take time as an input?
-p = polyfit(ta, xavg(:,3),10);
-y1 = polyval(p,ta);
-q = polyfit(ta,xavg(:,4),10);
-y2 = polyval(q,ta);
-
-
-%% part 5
-
-A = diff(y2)/ta;
-B = diff(y1);
-
-
-
-
-
+   xo		=	[V;0.4;H;R];
+   [tb,xb] =	ode23('EqMotion',tspan,xo);
+   xo		=	[V;-0.18;H;R];
+   [tc,xc] =	ode23('EqMotion',tspan,xo);
+   plot(xa(:,4),xa(:,3),'red',xb(:,4),xb(:,3),'green',xc(:,4),xc(:,3),'black')
+      title('change flight path angle')
+   ylabel('height'); xlabel('range');
 
 
 
