@@ -70,9 +70,20 @@ for i = 1:100
   hold on
 end
 xlabel('range'); ylabel('height'); title('Monte Carlo Simulation')
-
-
-
+%% part 4
+xavg = 0;
+for i = 1:100
+  V = Vmin + (Vmax-Vmin)*rand(1);
+  Gam = GamMin + (GamMax-GamMin)*rand(1);
+  [ta,xa]	=	ode23('EqMotion',tspan,xo); 
+  xavg = (xa+xavg);
+end
+xavg = xavg/i;
+%make it take time as an input?
+p = polyfit(ta, xavg(:,3),10);
+y1 = polyval(p,ta);
+q = polyfit(ta,xavg(:,4),10);
+y2 = polyval(q,ta);
 
 
 
