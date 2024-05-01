@@ -55,6 +55,21 @@
    plot(xa(:,4),xa(:,3),'red',xb(:,4),xb(:,3),'green',xc(:,4),xc(:,3),'black')
       title('change flight path angle')
    ylabel('height'); xlabel('range');
+%% part 3
+Vmin = 2;
+Vmax = 7.5;
+GamMin = -.5;
+GamMax = .4;
+figure
+for i = 1:100
+    V = Vmin + (Vmax-Vmin)*rand(1);
+    Gam = GamMin + (GamMax-GamMin)*rand(1);
+  xo		=	[V;Gam;H;R];
+	[ta,xa]	=	ode23('EqMotion',tspan,xo);
+  plot(xa(:,4), xa(:,3), 'black')
+  hold on
+end
+xlabel('range'); ylabel('height'); title('Monte Carlo Simulation')
 
 
 
