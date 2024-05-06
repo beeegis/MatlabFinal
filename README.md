@@ -119,11 +119,6 @@ y2 = polyval(q,ta);
   this figure shows the flight trajectory for the limits of variation of the initial velocity and the flight path angle.  the upper limit is shown in green, lower limit in red, and nominal trajectory in black.
 
   ## Fig. 2: Monte Carlo Simulation
-  <2D trajectories simulated using random sampling of parameters, overlay polynomial fit onto plot.>
+ ![image](https://github.com/beeegis/MatlabFinal/assets/168612604/2f5a10a0-d3a5-4d92-a43c-1fc3d395ff1a)
 
-  Briefly describe what is being shown in the figure.
-
- ## Fig. 3: Time Derivatives
- <Time-derivative of height and range for the fitted trajectory>
-
-  Briefly describe what is being shown in the figure.
+this plot shows the trajectories for 100 flight tests using random inputs for initial velocity and fligth path angle.  The polynomial that was fit to this data is not included because it takes time as an input and this is a graph of height vs. range.  
