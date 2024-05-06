@@ -116,7 +116,7 @@ y2 = polyval(q,ta);
   
 ![image](https://github.com/beeegis/MatlabFinal/assets/168612604/ff83fef3-1aa8-4404-94c8-b7e1b0961d39)
 
-  
+  this figure shows the flight trajectory for the limits of variation of the initial velocity and the flight path angle.  the upper limit is shown in green, lower limit in red, and nominal trajectory in black.
 
   ## Fig. 2: Monte Carlo Simulation
   <2D trajectories simulated using random sampling of parameters, overlay polynomial fit onto plot.>
@@ -127,13 +127,3 @@ y2 = polyval(q,ta);
  <Time-derivative of height and range for the fitted trajectory>
 
   Briefly describe what is being shown in the figure.
-
-  (Below are for teams of 2-3 people)
-
-  # Animation
-  ## Point-Mass Animation
-  <Animated GIF showing 2D trajectory for nominal and the scenario (V=7.5 m/s, Gam=+0.4 rad)>
-  
-  (Below are for teams of 3 people)
-  ## Graphical Animation
-  <Same as the above animation, except that the moving *point* should be a 2D drawing of an airplane, drawn using CAD>
